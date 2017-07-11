@@ -14,7 +14,7 @@ A ILD-like detector is designed as the CEPC detector(CEPC-v1) with additional co
 In this analysis, the signal events are $e^+e^-\to \Zzero \Hboson\to\qqbar + \bbbar/\ccbar/gg$. The standard model background includes di-quark events, di-lepton events, vector boson pair production and higgs production with final states different from the signal. Both background and signal events are generated using Whizard\cite{Wizard_1} with assumption of collision by no-polarization electron-positron, with center of energy of 250 GeV. PHYTHIA 6.4 \cite{PYTHIA64} was used to model the fragmentation and hadronization. The higgs mass was assumed to be 125 GeV and the coupling was set as that predicted by standard model.\par
 The generated signal events and backgrounds events with higgs production undergo the GEANT4\cite{Geant4} based detector simulator Mokka\cite{mokka} with CEPC-v1. The simulated hits were digitized and reconstructed by the MarlinReco package. 
 %The  LCFIPlus\cite{LCFIPlus} toolkit was utilized to reconstruct the primary vertex, jets and secondary vertex. 
-The jets are reconstructed with Durham-like algorithm\cite{Durham} by implementing the toolkit lcfiplus\cite{lcfiplus}. This toolkit is also capable to reconstruct the primary and secondary vertex, as well as jet flavor tagging.\par
+The jets are reconstructed with Durham-like algorithm\cite{Durham} by implementing the toolkit lcfiplus\cite{LCFIPlus}. This toolkit is also capable to reconstruct the primary and secondary vertex, as well as jet flavor tagging.\par
 Background events without higgs production undergo fast simulation, which includes:
 \begin{itemize}
 \item Four momentum of jet(b,c quarks and gluon) is smeared according to a Gaussian function, with jet energy  
