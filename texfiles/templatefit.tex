@@ -1,4 +1,14 @@
-\section{Flavor tagging and template fit}\label{sec:templatefit}
+\section{Measurement of $H\to \bpair/\cpair/\gpair$}\label{sec:templatefit}
+After applying cuts on jets, the $H\to \bpair/\cpair/\gpair$ are mixed. 
+Flavor tagging is necessary to distinguish different flavor final states. 
+Based on the high performance flavor tagging algorithm, 
+a flavor tagging template fit method is used to simultaneously extract the 
+event number of each flavor final state. 
+These template fits are cooperated with 
+lepton pair recoil mass fit, making the dominant background estimation  
+model indepdent. In the following text, the flavor tagging techniques, 
+flavor tagging template fit and the 3D flavor tagging-recoil mass fit will 
+be described.
 \subsection{Flavor tagging}\label{subsec:flavortagging}
  A TMVA based algorithm are implemented to distinguish the jets' flavor. 
  The reconstructed jets are categorized according to the secondary vertex mulitiplicity. 
@@ -24,69 +34,71 @@
  
 \subsection{Template fit}\label{subsec:templatefit}
  The b-likenesses of the two jets from higgs decay, say $L_{b1}$ and $L_{b2}$, can be combined to construct a discriminator variable $X_B = \dfrac{L_{b1}L_{b2}}{1-L_{b1}L_{b2}}$.  The conservation of quark flavor in higgs decay guarantee that $X_B$ is close to 1 if higgs decay to $b\bar{b}$ while close to 0 in other case. 
- Similar variable are defined for c-likeness: $X_C = \dfrac{L_{c1}L_{c2}}{1-L_{c1}L_{c2}}$. A set of template is defined according to the signal and background's $X_B-X_C$ distribution.  The $X_B-X_C$ distribution in 'data', which is composed from signal and background simulation events, is shown in figure \ref{fig:data_template}.
- \begin{figure}[!htpb]
- \label{fig:data_template}
- \centering
- \subfigure[]
-{
-  \begin{minipage}[b]{0.42\textwidth}
-  \includegraphics[width=\textwidth]{Template/eeh_data.pdf}
-  \end{minipage}
-}
-\subfigure[]
-{
-  \begin{minipage}[b]{0.42\textwidth}
-  \includegraphics[width=\textwidth]{Template/mumuh_data.pdf}
-  \end{minipage}
-}
-\subfigure[]
-{ 
-   \begin{minipage}[b]{0.42\textwidth}
-   \includegraphics[width=\textwidth]{Template/nnh_data.pdf}
-   \end{minipage}
-}
-\subfigure[]
-{
-    \begin{minipage}[b]{0.42\textwidth}
-    \includegraphics[width=\textwidth]{Template/qqh_data.pdf}
-    \end{minipage}
-}
- \caption{$X_B-X_C$ distribution of pesudo-data in each channel: templates of \eeh(top left),\mmh(top right),\nnh(bottom left) and \qqh(bottom right)}
- \end{figure}
+ Similar variable are defined for c-likeness: $X_C = \dfrac{L_{c1}L_{c2}}{1-L_{c1}L_{c2}}$. A set of template is defined according to the signal and background's $X_B-X_C$ distribution.  The distribution of template for $H\to gg/bb/cc$ is shown in figure \ref{fig:sig_template}. These distributions are 
+ defined as flavor PDFs in the fit. For the dominant background like semi-leptonic $ZZ$ events and $ZH\to \llh$ background, there are also such flavor templates defined as flavor PDFs.\par
+% The $X_B-X_C$ distribution in 'data', which is composed from signal and background simulation events, is shown in figure \ref{fig:data_template}.
+% \begin{figure}[!htpb]
+% \label{fig:data_template}
+% \centering
+% \subfigure[]
+%{
+%  \begin{minipage}[b]{0.42\textwidth}
+%  \includegraphics[width=\textwidth]{Template/eeh_data.pdf}
+%  \end{minipage}
+%}
+%\subfigure[]
+%{
+%  \begin{minipage}[b]{0.42\textwidth}
+%  \includegraphics[width=\textwidth]{Template/mumuh_data.pdf}
+%  \end{minipage}
+%}
+%%\subfigure[]
+%%{ 
+%%   \begin{minipage}[b]{0.42\textwidth}
+%%   \includegraphics[width=\textwidth]{Template/nnh_data.pdf}
+%%   \end{minipage}
+%%}
+%%\subfigure[]
+%%{
+%%    \begin{minipage}[b]{0.42\textwidth}
+%%    \includegraphics[width=\textwidth]{Template/qqh_data.pdf}
+%%    \end{minipage}
+%%}
+% \caption{$X_B-X_C$ distribution of pesudo-data in each channel: templates of \eeh(top left),\mmh(top right),\nnh(bottom left) and \qqh(bottom right)}
+% \end{figure}
 
- A likelihood was constructed according to the template distribution:
- \begin{equation}
- \log{L} = \sum\limits_{i=1}^N{\log{Possion(\mu_{i},n_{i})}}
- \label{for:template}
- \end{equation}
-in which i is the bin index(we have 20 bins for $X_B$ and $X_C$ so in all $N=400$); $Possion(\mu_{i},n_{i})$ is the Possion likelihood with for $n_{i}$ obvserved event and expectation $\mu_{i}$, which include the parameter of interest:
-\begin{equation}
-\mu_{i} = \sum\limits_{j=1}^s f_j\times\mu_{i,j}
-\end{equation}
-in which j is the index of templates (one template for each components); $f_j$ is the fraction of $j$th components which need to be worked out; $\mu_{i,j}$ stands for the expected event yields of $j$th components in $i$th bin. Minimize $-\log{L}$ we can fit the $f_j$. The distribution of template for $H\to gg/bb/cc$ is shown in figure \ref{fig:sig_template}. The $\Hboson \to \bpair$ and $\Hboson \to\cpair$ concentrate in region (1,0) and (0,1) respectively, while $\Hboson\to\gpair$ tends to distribute around (0,0). It can be found a tail at (1,0) show up in $\Hboson$ distribution, which are due to contribution of gluon splitting $g\to \bpair$(\eeh,\mmh and \nnh) and hadronic $Z-$decay(\qqh).
+% A likelihood was constructed according to the template distribution:
+% \begin{equation}
+% \log{L} = \sum\limits_{i=1}^N{\log{Possion(\mu_{i},n_{i})}}
+% \label{for:template}
+% \end{equation}
+%in which i is the bin index(we have 20 bins for $X_B$ and $X_C$ so in all $N=400$); $Possion(\mu_{i},n_{i})$ is the Possion likelihood with for $n_{i}$ obvserved event and expectation $\mu_{i}$, which include the parameter of interest:
+%\begin{equation}
+%\mu_{i} = \sum\limits_{j=1}^s f_j\times\mu_{i,j}
+%\end{equation}
+%in which j is the index of templates (one template for each components); $f_j$ is the fraction of $j$th components which need to be worked out; $\mu_{i,j}$ stands for the expected event yields of $j$th components in $i$th bin. Minimize $-\log{L}$ we can fit the $f_j$. The distribution of template for $H\to gg/bb/cc$ is shown in figure \ref{fig:sig_template}. The $\Hboson \to \bpair$ and $\Hboson \to\cpair$ concentrate in region (1,0) and (0,1) respectively, while $\Hboson\to\gpair$ tends to distribute around (0,0). It can be found a tail at (1,0) show up in $\Hboson$ distribution, which are due to contribution of gluon splitting $g\to \bpair$(\eeh,\mmh and \nnh) and hadronic $Z-$decay(\qqh).
  
 \begin{figure}[!htpb]
 \label{fig:sig_template}
 \centering
-\subfigure[]
-{
-  \begin{minipage}[b]{0.33\textwidth}
-  \includegraphics[width=\textwidth]{Template/eeh_bb.pdf}
-  \end{minipage}
-}
-\subfigure[]
-{
-  \begin{minipage}[b]{0.31\textwidth}
-  \includegraphics[width=\textwidth]{Template/eeh_cc.pdf}
-  \end{minipage}
-}
-\subfigure[]
-{ 
-   \begin{minipage}[b]{0.31\textwidth}
-   \includegraphics[width=\textwidth]{Template/eeh_gg.pdf}
-   \end{minipage}
-}
+%\subfigure[]
+%{
+%  \begin{minipage}[b]{0.31\textwidth}
+%  \includegraphics[width=\textwidth]{Template/eeh_bb.pdf}
+%  \end{minipage}
+%}
+%\subfigure[]
+%{
+%  \begin{minipage}[b]{0.31\textwidth}
+%  \includegraphics[width=\textwidth]{Template/eeh_cc.pdf}
+%  \end{minipage}
+%}
+%\subfigure[]
+%{ 
+%   \begin{minipage}[b]{0.31\textwidth}
+%   \includegraphics[width=\textwidth]{Template/eeh_gg.pdf}
+%   \end{minipage}
+%}
 \subfigure[]
 {
     \begin{minipage}[b]{0.31\textwidth}
@@ -105,76 +117,78 @@ in which j is the index of templates (one template for each components); $f_j$ i
     \includegraphics[width=\textwidth]{Template/mumuh_gg.pdf}
     \end{minipage}
 }
-\subfigure[]
-{
-    \begin{minipage}[b]{0.31\textwidth}
-    \includegraphics[width=\textwidth]{Template/nnh_bb.pdf}
-    \end{minipage}
-}
-\subfigure[]
-{ 
-   \begin{minipage}[b]{0.31\textwidth}
-   \includegraphics[width=\textwidth]{Template/nnh_cc.pdf}
-   \end{minipage}
-}
-\subfigure[]
-{
-    \begin{minipage}[b]{0.31\textwidth}
-    \includegraphics[width=\textwidth]{Template/nnh_gg.pdf}
-    \end{minipage}
-}
-\subfigure[]
-{
-    \begin{minipage}[b]{0.31\textwidth}
-    \includegraphics[width=\textwidth]{Template/qqh_bb.pdf}
-    \end{minipage}
-}
-\subfigure[]
-{ 
-   \begin{minipage}[b]{0.31\textwidth}
-   \includegraphics[width=\textwidth]{Template/qqh_cc.pdf}
-   \end{minipage}
-}
-\subfigure[]
-{
-    \begin{minipage}[b]{0.31\textwidth}
-    \includegraphics[width=\textwidth]{Template/qqh_gg.pdf}
-    \end{minipage}
-}
-\caption{Template of signal events. From top row to bottom row: templates of \eeh,\mmh,\nnh and \qqh; from left column to right column: templates of $\Hboson\to\bpair$,$\Hboson\to\cpair$ and $\Hboson\to\gpair$.}
+%\subfigure[]
+%{
+%    \begin{minipage}[b]{0.31\textwidth}
+%    \includegraphics[width=\textwidth]{Template/nnh_bb.pdf}
+%    \end{minipage}
+%}
+%\subfigure[]
+%{ 
+%   \begin{minipage}[b]{0.31\textwidth}
+%   \includegraphics[width=\textwidth]{Template/nnh_cc.pdf}
+%   \end{minipage}
+%}
+%\subfigure[]
+%{
+%    \begin{minipage}[b]{0.31\textwidth}
+%    \includegraphics[width=\textwidth]{Template/nnh_gg.pdf}
+%    \end{minipage}
+%}
+%\subfigure[]
+%{
+%    \begin{minipage}[b]{0.31\textwidth}
+%    \includegraphics[width=\textwidth]{Template/qqh_bb.pdf}
+%    \end{minipage}
+%}
+%\subfigure[]
+%{ 
+%   \begin{minipage}[b]{0.31\textwidth}
+%   \includegraphics[width=\textwidth]{Template/qqh_cc.pdf}
+%   \end{minipage}
+%}
+%\subfigure[]
+%{
+%    \begin{minipage}[b]{0.31\textwidth}
+%    \includegraphics[width=\textwidth]{Template/qqh_gg.pdf}
+%    \end{minipage}
+%}
+\caption{Template of signal events. 
+%From top row to bottom row: templates of \eeh and \mmh; %\nnh and \qqh; 
+From left column to right column: templates of $\Hboson\to\bpair$,$\Hboson\to\cpair$ and $\Hboson\to\gpair$.}
 \end{figure}
 
-In the fit, the $\Hboson\to\bpair$,$\Hboson\to\cpair$ and $\Hboson\to\gpair$ combined events yield is set as free parameter, which is equal to $L\times \sigma_{ZH\to 4jets}$. The fraction of each of the 3 flavor finals states, say $f_b$,$f_c$ and $f_g$, contribute 2 independent free parameters\footnote{The renormalization requires $f_b+f_c+f_g = 1$, reducing the number of free parameter by 1.}. The shape of backgrounds are fixed. The background distribution was shown in figure \ref{fig:bkg_template}.
-
-\begin{figure}[!htpb]
-\label{fig:bkg_template}
-\centering
-\subfigure[]
-{
-  \begin{minipage}[b]{0.42\textwidth}
-  \includegraphics[width=\textwidth]{Template/eeh_bkg.pdf}
-  \end{minipage}
-}
-\subfigure[]
-{
-  \begin{minipage}[b]{0.42\textwidth}
-  \includegraphics[width=\textwidth]{Template/mumuh_bkg.pdf}
-  \end{minipage}
-}
-\subfigure[]
-{ 
-   \begin{minipage}[b]{0.42\textwidth}
-   \includegraphics[width=\textwidth]{Template/nnh_bkg.pdf}
-   \end{minipage}
-}
-\subfigure[]
-{
-    \begin{minipage}[b]{0.42\textwidth}
-    \includegraphics[width=\textwidth]{Template/qqh_bkg.pdf}
-    \end{minipage}
-}
-\caption{Templates of background events in \eeh(top left),\mmh(top right),\nnh(bottom left) and \qqh(bottom right) channel.}
-\end{figure}
+%In the fit, the $\Hboson\to\bpair$,$\Hboson\to\cpair$ and $\Hboson\to\gpair$ combined events yield is set as free parameter, which is equal to $L\times \sigma_{ZH\to 4jets}$. The fraction of each of the 3 flavor finals states, say $f_b$,$f_c$ and $f_g$, contribute 2 independent free parameters\footnote{The renormalization requires $f_b+f_c+f_g = 1$, reducing the number of free parameter by 1.}. The shape of backgrounds are fixed. The background distribution was shown in figure \ref{fig:bkg_template}.
+%
+%\begin{figure}[!htpb]
+%\label{fig:bkg_template}
+%\centering
+%\subfigure[]
+%{
+%  \begin{minipage}[b]{0.42\textwidth}
+%  \includegraphics[width=\textwidth]{Template/eeh_bkg.pdf}
+%  \end{minipage}
+%}
+%\subfigure[]
+%{
+%  \begin{minipage}[b]{0.42\textwidth}
+%  \includegraphics[width=\textwidth]{Template/mumuh_bkg.pdf}
+%  \end{minipage}
+%}
+%%\subfigure[]
+%%{ 
+%%   \begin{minipage}[b]{0.42\textwidth}
+%%   \includegraphics[width=\textwidth]{Template/nnh_bkg.pdf}
+%%   \end{minipage}
+%%}
+%%\subfigure[]
+%%{
+%%    \begin{minipage}[b]{0.42\textwidth}
+%%    \includegraphics[width=\textwidth]{Template/qqh_bkg.pdf}
+%%    \end{minipage}
+%%}
+%\caption{Templates of background events in \eeh(top left) and \mmh(top right)channel.}
+%\end{figure}
 
 
 %\begin{figure}[htpb]
@@ -191,86 +205,132 @@ In the fit, the $\Hboson\to\bpair$,$\Hboson\to\cpair$ and $\Hboson\to\gpair$ com
 % \item Gluon radiation: give rise to considerable charge in partons momentum.  
 % \item Gluon splitting: causing a more complex final states with additional parton
 % \end{itemize}
+\subsection{Three dimension fit on flavor templtes and recoil mass}
 
+\label{subsec:3D_fit}
+A set of 3-dimension PDFs are defined by the production of the flavor PDF and recoil mass PDFs. 
+\begin{equation}
+PDF^{3D}(X_B,X_C,M_{recoil}) = PDF^{flavor}(X_B,X_C)\times PDF^{recoil\_mass}(M_{recoil})
+\end{equation}
+The recoil mass of \mmh events was described by a crystal ball function plus a double sided exponential function, while the recoil mass of background events are discribed by a second order Chebychev polynomial function; $PDF^{flavor}$ is the flavor PDFs defined in 
+ \ref{subsec:templatefit}. 
+ For signals, the crystal-ball distribution shape are assumed to be indepdent to different flavor final states from higgs decay, 
+ and similarly the $ZZ$ semi-leptonic final states share the description of recoil mass spectrum. In fig \ref{fig:recoilmass_fit}, the recoil mass fit for the signal 
+ and signal + background are presented. We can find the the perfect signal modeling are insured in the fit.\par
+ \begin{figure}
+ \label{fig: recoilmass_fit}
+ \centering 
+ \subfigure[]
+{ 
+   \begin{minipage}[b]{0.47\textwidth}
+   \includegraphics[width=\textwidth]{Template/MuMu_recoil_sig_logscale.pdf}
+   \end{minipage}
+}
+\subfigure[]
+{
+    \begin{minipage}[b]{0.47\textwidth}
+    \includegraphics[width=\textwidth]{Template/MuMu_recoil_1D.pdf}
+    \end{minipage}
+}
+\caption{ \mupair recoil mass fit . Left: \mmh only fit. Right: Signal+Background fit.}
+ \end{figure}
 
-\subsection{ToyMC test with templatefit}
-A ToyMC test was applied to evaluate the uncertainty from template fit. In this test, the template fit was done repeatly to the different datasets, in which events yields at each bin on the $X_B-X_C$ distribution are set to be random value according to Possion distribution. This test deomonstrate the unceratiny from the fit  due to data statistic fluctuation. The fit results for $\eeh$, $\mmh$, $\nnh$ and $\qqh$ are shown in figure \ref{fig:toymc_subchannel}. 
+ There are 4 parameters for crystal-ball shape and 2 parameters for polynomial, in addition, there are 9 parameters for signal and background 
+ normalizations. 
+ The shape parameters of recoil mass PDFs are free in the fit. 
+ The normalization parameters for signals, $ZZ\to \mupair+\qpair$ are also float, while normalization parameters for $ZH\to ZWW^*$ and $ZH\to ZZ^*$ are fixed. Both shape and normalization parameters for other backgrounds are fixed. The shape of those minor backgrounds are taken from MC simulation in 
+ the form of a 3-dimension histogram in $X_B$-$X_C$-$Recoil\_Mass$ space. 
+  The parameters setting are illustrated in table \ref{tab:fit_3d_para}.\par
+  \begin{table}\label{tab:fit_3d_para}
+  \centering
+  \begin{tabular}{r|c|c|c|c|c|c|c|c|c} \hline
+              &\multicolumn{3}{|c|}{signal}&\multicolumn{2}{|c|}{$\llh$ background}   & \multicolumn{3}{|c|}{$ZZ$ semi-leptonic} & other background \\ \cline{2-9}
+              & $\bpair$ & $\cpair$ & $\gpair$ & $WW^*$ &
+                 $ZZ^*$  & $\leppair + \bpair$ &  $\leppair + \cpair$       &  $\leppair + \qpair$  &   \\ \hline
+  Recoil mass shape  &    \multicolumn{5}{|c|}{Released}   &    \multicolumn{3}{|c|}{Released}  &   Fixed \\ \hline 
+  Normalization      & R & R & R & F & F & R& R &R & F\\ \hline           
+  \end{tabular}
+  \caption{Parameters setting in the 3D-fit. The signal and $\llh$ backgrounds share the same recoil mass shape; the $ZZ$ semi-leptonic background share the same recoil mass shape. Other background's shape and normalization are fixed according to a 3-dimension histogram distribution. The 'R' and 'F' in last row stands for 'Released' and 'Fixed' respectively. }
+  \end{table}
 
-\begin{figure}[!htpb]
-\centering
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_eeh_bb.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_eeh_cc.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_eeh_gg.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_mumuh_bb.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_mumuh_cc.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_mumuh_gg.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_nnh_bb.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_nnh_cc.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_nnh_gg.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_qqh_bb.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_qqh_cc.pdf}
-     \end{minipage}
-}
-\subfigure[]
-{
-     \begin{minipage}[b]{0.31\textwidth}
-     \includegraphics[width=\textwidth]{Template/toymc_qqh_gg.pdf}
-     \end{minipage}
-}
-\caption{Toy MC test result in terms of signal strength and uncertainty from template fit. The signal strength from template fit in each channel for each higgs hadronic decay is presented. Plots in each row are from the same channel, from top row to bottom row are : \eeh, \mmh, \nnh and \qqh; plots in each column are from the same higgs decay mode, from left to right column are $H\rightarrow \bpair$, $H\rightarrow \cpair$ and $H\rightarrow \gpair$.}
-\label{fig:toymc_subchannel}
-\end{figure}
+%\subsection{ToyMC test with templatefit}
+%A ToyMC test was applied to evaluate the uncertainty from template fit. In this test, the template fit was done repeatly to the different datasets, in which events yields at each bin on the $X_B-X_C$ distribution are set to be random value according to Possion distribution. This test deomonstrate the unceratiny from the fit  due to data statistic fluctuation. The fit results for $\eeh$ and $\mmh$ are shown in figure \ref{fig:toymc_subchannel}. 
+%
+%\begin{figure}[!htpb]
+%\centering
+%\subfigure[]
+%{
+%     \begin{minipage}[b]{0.31\textwidth}
+%     \includegraphics[width=\textwidth]{Template/toymc_eeh_bb.pdf}
+%     \end{minipage}
+%}
+%\subfigure[]
+%{
+%     \begin{minipage}[b]{0.31\textwidth}
+%     \includegraphics[width=\textwidth]{Template/toymc_eeh_cc.pdf}
+%     \end{minipage}
+%}
+%\subfigure[]
+%{
+%     \begin{minipage}[b]{0.31\textwidth}
+%     \includegraphics[width=\textwidth]{Template/toymc_eeh_gg.pdf}
+%     \end{minipage}
+%}
+%\subfigure[]
+%{
+%     \begin{minipage}[b]{0.31\textwidth}
+%     \includegraphics[width=\textwidth]{Template/toymc_mumuh_bb.pdf}
+%     \end{minipage}
+%}
+%\subfigure[]
+%{
+%     \begin{minipage}[b]{0.31\textwidth}
+%     \includegraphics[width=\textwidth]{Template/toymc_mumuh_cc.pdf}
+%     \end{minipage}
+%}
+%\subfigure[]
+%{
+%     \begin{minipage}[b]{0.31\textwidth}
+%     \includegraphics[width=\textwidth]{Template/toymc_mumuh_gg.pdf}
+%     \end{minipage}
+%}
+%%\subfigure[]
+%%{
+%%     \begin{minipage}[b]{0.31\textwidth}
+%%     \includegraphics[width=\textwidth]{Template/toymc_nnh_bb.pdf}
+%%     \end{minipage}
+%%}
+%%\subfigure[]
+%%{
+%%     \begin{minipage}[b]{0.31\textwidth}
+%%     \includegraphics[width=\textwidth]{Template/toymc_nnh_cc.pdf}
+%%     \end{minipage}
+%%}
+%%\subfigure[]
+%%{
+%%     \begin{minipage}[b]{0.31\textwidth}
+%%     \includegraphics[width=\textwidth]{Template/toymc_nnh_gg.pdf}
+%%     \end{minipage}
+%%}
+%%\subfigure[]
+%%{
+%%     \begin{minipage}[b]{0.31\textwidth}
+%%     \includegraphics[width=\textwidth]{Template/toymc_qqh_bb.pdf}
+%%     \end{minipage}
+%%}
+%%\subfigure[]
+%%{
+%%     \begin{minipage}[b]{0.31\textwidth}
+%%     \includegraphics[width=\textwidth]{Template/toymc_qqh_cc.pdf}
+%%     \end{minipage}
+%%}
+%%\subfigure[]
+%%{
+%%     \begin{minipage}[b]{0.31\textwidth}
+%%     \includegraphics[width=\textwidth]{Template/toymc_qqh_gg.pdf}
+%%     \end{minipage}
+%%}
+%\caption{Toy MC test result in terms of signal strength and uncertainty from template fit. The signal strength from template fit in each channel for each higgs hadronic decay is presented. Plots in each row are from the same channel, from top row to bottom row are : \eeh, \mmh, \nnh and \qqh; plots in each column are from the same higgs decay mode, from left to right column are $H\rightarrow \bpair$, $H\rightarrow \cpair$ and $H\rightarrow \gpair$.}
+%\label{fig:toymc_subchannel}
+%\end{figure}
 

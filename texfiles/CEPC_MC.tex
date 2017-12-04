@@ -2,25 +2,73 @@
 \label{sec:CEPC}
 \subsection{CEPC experiment}
 The CEPC is a future ciruclar electron-positron collider project. Two detectors will be installed at two interaction 
-points in the stoarge ring, 50-100 kilometers in circumference. Electrons and positrons collide at each interaction point with center of mass energy 240 - 250 GeV. The luminosity is design to be \ten{2}{34} \lumiunit.
- The higgs boson are produced mainly via associated production with Z boson(96.6\%) as well as much $WW$ fusion (with $\nu_e\bar{\nu}_e H$ in final states,3.06\%) and $ZZ$ fusion(0.29\%, with $e^+e^-H$ in final state).
+points in the stoarge ring, 50-100 kilometers in circumference. 
+To study the Higgs boson property, electrons and positrons collide at each interaction point with center of mass energy 240 - 250 GeV. The luminosity is design to be \ten{2}{34} \lumiunit. 
+The CEPC can deliver up to 5000 \ifb data after ten years of running , including about 1 million Higgs events.
+ The Higgs boson are produced mainly via associated production with Z boson(96.6\%) as well as much $WW$ fusion (with $\nu_e\bar{\nu}_e H$ in final states,3.06\%) and $ZZ$ fusion(0.29\%, with $e^+e^-H$ in final state).
  
-\cite{CEPC_preCDR}. 
 
-\subsection{CEPC detector}
-A ILD-like detector is designed as the CEPC detector(CEPC-v1) with additional considerations\cite{CEPC_preCDR}. Detail description of ILD model can be found in \cite{ILD_detector}. All changes need to be implemented into simulation, and iterate with physics analysis and cost estimation.
+ ILD-like detector is designed as the CEPC detector(CEPC-v1) with additional considerations\cite{CEPC_preCDR}.  
+%A machine detector interface (MDI) was designed at the interaction region(IR). It covers the common aspects in the collider and the detector. 
+A vertex detector (VTX) with high pixel resolution is located in the inner 
+most part of the detector. It provides the inner tracks measurement with high spatial resolution, which is key information for track impact parameter 
+ (IP) measurements and vertex reconstruction. The heavy flavor jet tagging significantly relies on the capablity on IP measurements and vertex reconstruction with high precision. 
+%This sub-detector is crucial for the performance of flavor tagging. 
+The 6 layers of sensors are laid 16 to 60 mm in radius with 97\% to 90\% in azimuth angular coverage. The signal layer spatial resolution is 2.8 $\mu$m in the 2 inner 
+layers and 4 $\mu$m in the 4 outer layers. The overall IP resolution can be estimated as 
+\begin{equation}
+{\sigma(r\phi)}= a \oplus \frac{b}{p(\mathrm{\GeV}) \sin^{3/2} \theta }\mum
+%\sigma_{SP} = a \bigotimes \frac{b}{p(\mathrm{GeV})\Sin^{3/2}\theta \mu\mathrm{m}}
+%\sigma_{SP} = a \bigotimes \frac{b}{c}
+\end{equation},
+in which $a = 5$ and $b = 10$.\par %how about the logitudinal impact parameter
+A Time Project Chamber(TPC) is laid out of VTX to take the major task of track 
+measurement. It covers the solid angle up to $\cos \theta = 0.98$. 
+When being operated in 3.5 T filed, the momentum resolution is 
+$\sigma(1/p_T) = 10^{-4}\GeV$. \par
+A Particle Flow Algorithm-oriented\cite{PFA} calorimeter system, combined by the electromagnetic calorimeter(ECAL) 
+and hadronic calorimeter(HCAL), was designed with high granularity and precise energy mesurement of electrons, photons, taus and hadronic jets. 
+The resolution of ECAL and HCAL are about $16\%/\sqrt{E(\GeV)}$ and $50\%/\sqrt{E(\GeV)}$. The energy resolution of jets from Higgs or $W^{\pm}/Z$ 
+decay is estimated about $\sigma_E/E = 3-4 \%$. With granularity better than 1 \cm $\times$ 1 \cm of each cell, the hadrons in jets can be well seperated. \par
+The muon system is mounted as the outermost part in the detector. The baseline 
+design of muon detector requires 94\% reconstruction efficiency of muons with 
+energy higher than 6 \GeV. The longitutute and transverse position resolution 
+are required to be $\sigma _{z} = 1.5 \cm$ and $\sigma_{r\phi} = 2.0 \cm$. The 
+rate of pions mis-identified as muons at energy 30 \GeV is required to be less 
+than 1\%.\par
 
-\subsection{MC Samples}
-In this analysis, the signal events are $e^+e^-\to \Zzero \Hboson\to\qqbar + \bbbar/\ccbar/gg$. The standard model background includes di-quark events, di-lepton events, vector boson pair production and higgs production with final states different from the signal. Both background and signal events are generated using Whizard\cite{Wizard_1} with assumption of collision by no-polarization electron-positron, with center of energy of 250 GeV. PHYTHIA 6.4 \cite{PYTHIA64} was used to model the fragmentation and hadronization. The higgs mass was assumed to be 125 GeV and the coupling was set as that predicted by standard model.\par
-The generated signal events and backgrounds events with higgs production undergo the GEANT4\cite{Geant4} based detector simulator Mokka\cite{mokka} with CEPC-v1. The simulated hits were digitized and reconstructed by the MarlinReco package. 
+%\subsection{CEPC detector}
+%A ILD-like detector is designed as the CEPC detector(CEPC-v1) with additional considerations\cite{CEPC_preCDR}. Detail description of ILD model can be found in \cite{ILD_detector}. All changes need to be implemented into simulation, and iterate with physics analysis and cost estimation.
+
+\subsection{MC Samples and Jets Reconstruction}
+In this analysis, the signal events are $e^+e^-\to \Zzero \Hboson\to \leppair + \bbbar/\ccbar/gg$, thus the final states contains a pair of leptons with opposite charge and two jets.  
+The standard model background includes di-quark events, di-lepton events, vector boson pair production and higgs production with final states different from the signal. Both background and signal events are generated using Whizard\cite{Wizard_1} configured as no-polarization electron-positron collision at center of mass energy of 250 GeV. PHYTHIA 6.4 \cite{PYTHIA64} was used to model the fragmentation and hadronization. The higgs mass was assumed to be 125 GeV and the coupling was set as that predicted by standard model. Detailed information of MC samples generation can be found in \cite{Samples}.\par
+The generated events undergo the GEANT4\cite{Geant4} based detector simulator Mokka\cite{mokka} with CEPC-v1. The simulated hits were digitized and reconstructed with ArborPFA\cite{ArborPFA}. \par
 %The  LCFIPlus\cite{LCFIPlus} toolkit was utilized to reconstruct the primary vertex, jets and secondary vertex. 
-The jets are reconstructed with Durham-like algorithm\cite{Durham} by implementing the toolkit lcfiplus\cite{LCFIPlus}. This toolkit is also capable to reconstruct the primary and secondary vertex, as well as jet flavor tagging.\par
-Background events without higgs production undergo fast simulation, which includes:
-\begin{itemize}
-\item Four momentum of jet(b,c quarks and gluon) is smeared according to a Gaussian function, with jet energy  
-resolution $\sigma$ set to be 4\%.
-\item Each leptonic track ($e/\mu$) is corrected by momentum resolution and tracking efficiency, whose parameter are obtained from the study of the full simulation.
-\item The four momentum of neutrino decaying from the final hadron subtracted from the four momentum of jet.
-\end{itemize} 
-The fast simulation reconstruct jets using a simplified algorithm. It is faster but with disadvantage that the vertex information is missing from reconstruct. Full simulation sample of the backgrounds are also in production and results will be updated using those samples. Detailed information of MC samples can be found in \cite{Samples}.
+Jets reconstruction and flavor tagging are essential to this analysis.
+These tasks are done with the lcfiplus \cite{LCFIPlus} toolkit, integrating the functionality of doing vertex finding, jet reconstruction and jet flavor tagging. 
+Flavor tagging will be discussed in section \ref{subsec:flavortagging}. 
+Jets are reconstructed by Durham algorithm\cite{Durham}. 
+% by implementing the lcfiplus\cite{LCFIPlus} toolkit. 
+This algorithm begins with jet cluster candidates and a required jet multiplicity. 
+Initially each track from primary vertex or each neutral particle is a jet cluster candidates. Tracks from the same secondary vertex are taken as one jet cluster candidates.
+The procedure iteratively pairs the clusters by selecting the minimum 
+distance measure, defined as $y_{i,j} = \mathrm{min}\{E^2_i,E^2_j\}(1-\cos(\theta_{ij})/E^2_{vis}$, where $E_i$ and $E_j$ are the energy of 
+$i$-th and $j$-th cluster, and $\theta_{ij}$ refers to the angle between them. 
+$E_{vis}$ are the sum of energy of all the clusters. Clusters with minimum $y_{ij}$ are merged, reducing the cluster number by 1，until the remaining clusters number 
+equals to the required jet multiplicity. This algorithm gives a series of 
+$y_{ij}$ value: $y_{12}$, $y_{23}$, $y_{34}$ $etc$. When $i$ is larger than 
+the real cluster multiplicity, $y_{ij}$ refect the distance of two clusters 
+which are actually from the same cluster, resulting a small $y_{ij}$ value. Thus $y_{ij}$ is an indicator of the jet cluster multiplicity.\par
+%This algorithm is integrated in the 
+%lcfiplus \cite{LCFIPlus} toolkit. 
+%This toolkit is also capable to reconstruct the primary and secondary vertex, as well as jet flavor tagging.\par
+%Background events without higgs production undergo fast simulation, which includes:
+%\begin{itemize}
+%\item Four momentum of jet(b,c quarks and gluon) is smeared according to a Gaussian function, with jet energy  
+%resolution $\sigma$ set to be 4\%.
+%\item Each leptonic track ($e/\mu$) is corrected by momentum resolution and tracking efficiency, whose parameter are obtained from the study of the full simulation.
+%\item The four momentum of neutrino decaying from the final hadron subtracted from the four momentum of jet.
+%\end{itemize} 
+%The fast simulation reconstruct jets using a simplified algorithm. It is faster but with disadvantage that the vertex information is missing from reconstruct. Full simulation sample of the backgrounds are also in production and results will be updated using those samples. 
 \clearpage
