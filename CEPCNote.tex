@@ -107,7 +107,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\title{ Higgs Mass and Cross-section Measurement at CEPC }
-\title{Measurement of $H\to \bpair /\cpair /\gpair$ Branch Ration from $ZH$ Production with  $\nnh$, $\llh$ and $\qqh$  Final States in CEPC Experiment}
+%\title{Measurement of $H\to \bpair /\cpair /\gpair$ Branch Ration from $ZH$ Production with  $\nnh$, $\llh$ and $\qqh$  Final States in CEPC Experiment} 
+\title{Measurements of the decay branching ratios of $H\to\bpair/\cpair/\gpair$ at CEPC}
 %\title{A template for CEPC papers}
 \author{CEPC Workgroup}
 \mail  {baiy@seu.edu.cn}
@@ -121,24 +122,25 @@
 %  can be found on the web pages of the CEPC Collaboration. 
 %  You can find some \LaTeX{} technical detail about the
 %  template in the Appendix of this paper.
-  A couple of remarks about the paper front page:
-  \begin{itemize}
+%  A couple of remarks about the paper front page:
+%  \begin{itemize}
+%
+%  \item {\bf Title:} Measurement of $Hboson\to \bpair /\cpair /\gpair$ Branch Ration from $ZH$ Production with \nnh, \llh and \qqh  Final States in CEPC Experiment
+%  \item {\bf Author list:} it will be provided by the CEPC Collaboration,
+%    and will be made available on their website. On the
+%    front page, you should name ``The CEPC Collaboration'' as
+%    author.
 
-  \item {\bf Title:} Measurement of $Hboson\to \bpair /\cpair /\gpair$ Branch Ration from $ZH$ Production with \nnh, \llh and \qqh  Final States in CEPC Experiment
-  \item {\bf Author list:} it will be provided by the CEPC Collaboration,
-    and will be made available on their website. On the
-    front page, you should name ``The CEPC Collaboration'' as
-    author.
-
-  \item {\bf Abstract:}
-  A study on the measurement on $Hboson\to \bbbar /\ccbar/gg$ branch ratio, one of the benchmark measurements in CEPC experiment, is presented here. In the scenario concerned, the Higgs boson are produced associated with a Z boson,
-  and subsequently undergo hadronic decay, while the $Zboson$ decays to neutrino pair, charged lepton pair or quark pair.  
-
-%  This analysis，in complementary with the measurement on other states of ZH production, can be used to derive the Yakawa coupling, one of the key properties to understand the Electroweak symmetry breaking mechanism. \par
-   An integral luminosity of 5000 fb$^{-1}$ is assumed to estimate the signal and background yielding, corresponding to 10 years running of CEPC with nominal luminosity at \ten{2}{34} $\lumiunit$. A cut based analysis is applied to each analysis, combined with multi-variable method. The flavor information in final states 
-   are extracted by fitting each flavor components according to their templates. A Toy Monte-Carlo test was done to evaluate the statistic uncertainty. 
-   They systematic uncertainty was also disccussed and estimated.
-   We conclude the measurement of $\Hboson \to \bpair/\cpair/\gpair$ reach the precision \percent{0.2}, \percent{2} and \percent{3}. 
+%  \item {\bf Abstract:}
+  {\bf Abstract:}
+%  A study on the measurement on $H\to \bbbar /\ccbar/gg$ branch ratio, one of the benchmark measurements in CEPC experiment, is presented here. In the scenario concerned, the Higgs boson are produced associated with a Z boson,
+%  and subsequently undergo hadronic decay, while the $Zboson$ decays to neutrino pair, charged lepton pair or quark pair.  
+%
+%%  This analysis，in complementary with the measurement on other states of ZH production, can be used to derive the Yakawa coupling, one of the key properties to understand the Electroweak symmetry breaking mechanism. \par
+%   An integral luminosity of 5000 fb$^{-1}$ is assumed to estimate the signal and background yielding, corresponding to 10 years running of CEPC with nominal luminosity at \ten{2}{34} $\lumiunit$. A cut based analysis is applied to each analysis, combined with multi-variable method. The flavor information in final states 
+%   are extracted by fitting each flavor components according to their templates. A Toy Monte-Carlo test was done to evaluate the statistic uncertainty. 
+%   They systematic uncertainty was also disccussed and estimated.
+%   We conclude the measurement of $\Hboson \to \bpair/\cpair/\gpair$ reach the precision \percent{0.2}, \percent{2} and \percent{3}. 
    %A cut based analysis gives xxx signal events and xxx.xxx background events. The flavor components was distinguished using a template fit method. In addition study of various of technics such as TMVA, tag counting are on going.
 %    it should also be clear, descriptive, and
 %    concise. It should ideally be one paragraph long, and certainly no
@@ -150,8 +152,17 @@
 %    should be avoided. If only Monte Carlo data are used in the
 %    publication, this fact should be stated explicitly in the
 %    abstract.  
-    
-  \end{itemize}
+
+
+   A study on the measurements of $H\to \bbbar /\ccbar/gg$ decay branching fractions is presented in this section.
+Here we consider the Higgs boson production mainly in association with a $Z$ boson, where $Z$ is reconstructed in the \mupair final states. 
+An integrated luminosity of 5000 fb$^{-1}$ is assumed in the analysis, corresponding to 10 years data taking with a nominal luminosity of \ten{2}{34} $\lumiunit$ at the CEPC. 
+
+%The results presented here are based on a combination of cut based event selection and a multi-variable template fitting method.  
+%The expected statistical uncertainties of the measurements are estimated using toy Monte-Carlo tests. 
+
+%Several potentially dominant systematic uncertainties of the measurements are also evaluated. The study shows that the branching fraction measurements of the Higgs boson decaying to $\bpair$, $\cpair/$ and $\gpair$ can reach a precision of \percent{0.2}, \percent{2} and \percent{3}, respectively   
+%  \end{itemize}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,8 +178,9 @@
 \input{texfiles/CEPC_MC}
 \input{texfiles/event_selection}
 \input{texfiles/templatefit}
-\input{texfiles/validation}
-\input{texfiles/results}
+%\input{texfiles/validation}
+%\input{texfiles/results}
+\input{texfiles/uncertainty}
 \input{texfiles/summary}
 
 \clearpage
